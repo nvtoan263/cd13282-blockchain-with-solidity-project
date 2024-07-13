@@ -1,13 +1,15 @@
 # Sample Hardhat Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
+To test contract
 ```shell
-npx hardhat help
 npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
+```
+To deploy contract
+```shell
 npx hardhat run scripts/deploy.js
+```
+Contracted has been deployed to Sepolia Testnet
+verify it in below URL
+```shell
+https://sepolia.etherscan.io/tx/0xe71523d3b78dfb94c948ef6fdcba9d50ecf2975a1106f31c0c27a3d7de50837f
 ```
