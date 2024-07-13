@@ -7,6 +7,14 @@ const { ethers } = require("hardhat");
 
 // Describing a test suite for the CollateralizedLoan contract
 describe("CollateralizedLoan", function () {
+
+  beforeEach(async function() {
+    CollateralizedLoan = await ethers.getContractFactory("CollateralizedLoan");
+    [borrower, lender] = await ethers.getSigners();
+    collateralizedLoan = await CollateralizedLoan.deploy();
+    await collateralizedLoan.deployed();
+  });
+
   // A fixture to deploy the contract before each test. This helps in reducing code repetition.
   async function deployCollateralizedLoanFixture() {
     // Deploying the CollateralizedLoan contract and returning necessary variables
@@ -17,9 +25,7 @@ describe("CollateralizedLoan", function () {
   // Test suite for the loan request functionality
   describe("Loan Request", function () {
     it("Should let a borrower deposit collateral and request a loan", async function () {
-      // Loading the fixture
-      // TODO: Set up test for depositing collateral and requesting a loan
-      // HINT: Use .connect() to simulate actions from different accounts
+      await expect(collateralizedLoan.connect(borrower).depositCollateralAndRequestLoan())
     });
   });
 
